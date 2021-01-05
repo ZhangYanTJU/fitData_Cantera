@@ -1,6 +1,3 @@
-'''
-python $pj_dir/bin/fitData_cantera.py
-'''
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
