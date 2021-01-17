@@ -5,6 +5,7 @@ import cantera as ct
 import numpy as np
 import math
 
+# reference about fitting thermo data: https://github.com/Upstream-Applied-Science/canteraJanaf
 # reference about writing thermo file: https://github.com/jiweiqi/Cantera2Chemkin/blob/master/soln2ck.py
 
 def build_nasa(nasa_coeffs, row):
