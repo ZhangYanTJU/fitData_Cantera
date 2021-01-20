@@ -158,9 +158,9 @@ def write(gas, thermo_fileName_new, plot):
 
 
 if __name__ == '__main__':
-    mech='C7H16_Lu_s68r283.cti'
+    mech='mech.cti'
     gas = ct.Solution(mech)
-    thermo_fileName_new = 'thermoNEW.dat'
+    thermo_fileName_new = 'thermoCorrected.dat'
     print(thermo_fileName_new)
-    plot=True # True False
+    plot=True # True or False
     write(gas, thermo_fileName_new, plot)

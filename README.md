@@ -36,15 +36,13 @@ conda activate spam
 ck2cti --input=chem.inp --thermo=thermo.dat --transport=trans.dat --output=mech.cti
 ```
 
-- adapt the script to your condition (change the mech name)
-
 - run the script
 
 ```shell
 python fitData_cantera.py
 ```
 
-- you will get thermoNEW.dat
+- you will get thermoCorrected.dat
 
 Here is an example of the plotted figure.
 ![OH](OH.png)
