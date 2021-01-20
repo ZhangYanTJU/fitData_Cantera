@@ -126,8 +126,8 @@ def write(gas, thermo_fileName_new, plot):
 
             species_comp = ''
             for atom in species.composition:
-                species_comp += '{:<4}'.format(atom)
-                species_comp += str(int(species.composition[atom]))
+                species_comp += '{:<3}'.format(atom)
+                species_comp += '{:<2}'.format(str(int(species.composition[atom])))
 
             species_phase = 'G'
 
