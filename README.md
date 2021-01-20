@@ -33,7 +33,7 @@ conda activate spam
 - transform your chemkin format mechanism to `*.cti` format
 
 ```shell
-ck2cti --input=chem.inp --thermo=thermo.dat --transport=trans.dat --output=mech.cti
+ck2cti --input=chem.inp --thermo=thermo.dat --output=mech.cti
 ```
 
 - run the script
