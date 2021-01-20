@@ -44,11 +44,10 @@ def write(gas, thermo_fileName_new, plot):
         deltaT = 100
         T_low = np.arange(Tlow,Tcommon,deltaT)
         T_high = np.arange(Tcommon,Thigh,deltaT)
-        temp_range = str('{0:.3f}'.format(Tlow)) + '  ' + str('{0:.3f}'.format(Tcommon)) + '  ' + '{0:.3f}'.format(Thigh)
+        temp_rangeAll = '{0:10.3f}'.format(Tlow) + '{0:10.3f}'.format(Tcommon) + '{0:10.3f}'.format(Thigh)
+        f.write('THERMO ALL' + '\n' + temp_rangeAll + '\n')
 
 
-        f.write('THERMO ALL' + '\n' +
-                '   ' + temp_range + '\n')
 
         #write data for each species in the Solution object
         for sp_index in range(len(gas.species_names)):
@@ -56,7 +55,7 @@ def write(gas, thermo_fileName_new, plot):
             species_name = gas.species_name(sp_index)
             molecular_weight = gas.molecular_weights[sp_index]
             nasa_coeffs = species.thermo.coeffs # orininal coeffs, size = 15, [0]=Tcommon, [1-7] is high coeffs, [8-14] is low coeffs
-            temp_range = str('{0:.3f}'.format(Tlow)) + '  ' + str('{0:.3f}'.format(Thigh)) + '  ' + '{0:.3f}'.format(Tcommon)
+            temp_range = '{:<10}'.format(Tlow) + '{:<10}'.format(Thigh) + '{:<8}'.format(Tcommon)
 
             if (nasa_coeffs[0] != Tcommon):
                 print("fitting species: %s"%(species_name), "from ",nasa_coeffs[0], "to ",Tcommon)
@@ -131,12 +130,17 @@ def write(gas, thermo_fileName_new, plot):
 
             species_phase = 'G'
 
+            # Ref: Table 3. Summary of the Rules for Thermo Data
+            # https://shepherd.caltech.edu/EDL/PublicResources/sdt/formats/chemkin.html#:~:text=The%20Chemkin%20thermo%20file%20format,%2C%20Sandia%20Report%20SAND89%2D8009.
+
             line_1 = (
                     '{:<18}'.format(species_name) +
-                    '{:<6}'.format('    ') +
+                    '{:<6}'.format(' ') +
                     '{:<20}'.format(species_comp) +
-                    '{:<4}'.format(species_phase) +
-                    '{:<31}'.format(temp_range) +
+                    '{:<1}'.format(species_phase) +
+                    '{:<28}'.format(temp_range) +
+                    '{:<5}'.format(' ') +
+                    '{:<1}'.format(' ') +
                     '{:<1}'.format('1') +
                     '\n')
             f.write(line_1)
