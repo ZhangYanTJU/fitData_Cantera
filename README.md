@@ -39,7 +39,7 @@ ck2cti --input=chem.inp --thermo=thermo.dat --output=mech.cti
 - run the script
 
 ```shell
-python fitData_cantera.py
+python fitData_Cantera.py
 ```
 
 - you will get thermoCorrected.dat
