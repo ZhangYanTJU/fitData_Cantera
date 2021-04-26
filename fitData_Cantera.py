@@ -42,8 +42,8 @@ def write(gas, thermo_fileName_new, plot):
         Tcommon = 1000
         Thigh = 5000
         deltaT = 100
-        T_low = np.arange(Tlow,Tcommon,deltaT)
-        T_high = np.arange(Tcommon,Thigh,deltaT)
+        T_low = np.arange(Tlow,Tcommon+deltaT,deltaT)
+        T_high = np.arange(Tcommon,Thigh+deltaT,deltaT)
         temp_rangeAll = '{0:10.3f}'.format(Tlow) + '{0:10.3f}'.format(Tcommon) + '{0:10.3f}'.format(Thigh)
         f.write('THERMO ALL' + '\n' + temp_rangeAll + '\n')
 

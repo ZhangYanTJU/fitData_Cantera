@@ -50,3 +50,7 @@ For OH, we fit the Tcommon from 1357 to 1000 K.
 `cp_org` is calculated by Cantera using the original mechanism file, which is set as the correct answer.
 `cp_fit` is calculated using the newly fitted coeffs with new Tcommon.
 And if you just manually change 1357 to 1000 in thermo.dat. You'll get the purple `cp_bad`, with a discontinuous cp.
+However, this is not the worst condition! And your case may still run normally, but with little error introduced. 
+
+If you mistakenly set a species with 'Tcommon = 1400 K' as the first species in 'chem.inp' (used in OpenFOAM), you will most likely get a wrong answer if the original Tcommon of N2 is 1000 K (here we assume N2 is the majority species).
+![N2](N2.png)
